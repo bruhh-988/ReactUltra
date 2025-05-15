@@ -76,6 +76,13 @@ const Login: React.FC = () => {
               </Alert>
             )}
 
+            <Alert className="mb-4 bg-blue-50 text-blue-800 border border-blue-200">
+              <AlertDescription>
+                <strong>演示账号：</strong> demo@example.com<br />
+                <strong>演示密码：</strong> demo1234
+              </AlertDescription>
+            </Alert>
+
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                 <FormField
@@ -149,7 +156,11 @@ const Login: React.FC = () => {
                   </Link>
                 </div>
 
-                <Button type="submit" className="w-full" disabled={isLoading}>
+                <Button 
+                  type="submit" 
+                  className="w-full mt-6 h-10 bg-blue-600 !bg-blue-600 text-white hover:!bg-blue-700 focus:ring-2 focus:ring-blue-500 font-medium text-sm px-5 py-2.5 rounded-md" 
+                  disabled={isLoading}
+                >
                   {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                   {isLoading
                     ? t('common.loading', 'Loading...')

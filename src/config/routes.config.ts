@@ -2,18 +2,43 @@
 import { lazy } from 'react';
 import { RouteConfig } from '../types/common.types';
 
-// Lazy loaded components
+// Lazy loaded components with Suspense boundaries for better code splitting
 const Dashboard = lazy(() => import('../pages/Dashboard'));
-const Login = lazy(() => import('../pages/auth/Login'));
-const Register = lazy(() => import('../pages/auth/Register'));
-const ForgotPassword = lazy(() => import('../pages/auth/ForgotPassword'));
 const Profile = lazy(() => import('../pages/Profile'));
 const Settings = lazy(() => import('../pages/Settings'));
 const NotFound = lazy(() => import('../pages/NotFound'));
 
+// Auth pages bundle
+const Login = lazy(() => import('../pages/auth/Login'));
+const Register = lazy(() => import('../pages/auth/Register'));
+const ForgotPassword = lazy(() => import('../pages/auth/ForgotPassword'));
+
 // Route Guards
 const requireAuth = (isAuthenticated: boolean) => isAuthenticated;
 const requireNoAuth = (isAuthenticated: boolean) => !isAuthenticated;
+
+// Preload function for prefetching route components
+export const preloadRoute = (route: string) => {
+  switch (route) {
+    case '/':
+      import('../pages/Dashboard');
+      break;
+    case '/login':
+      import('../pages/auth/Login');
+      break;
+    case '/register':
+      import('../pages/auth/Register');
+      break;
+    case '/profile':
+      import('../pages/Profile');
+      break;
+    case '/settings':
+      import('../pages/Settings');
+      break;
+    default:
+      break;
+  }
+};
 
 export const routes: RouteConfig[] = [
   {
