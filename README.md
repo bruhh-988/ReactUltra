@@ -162,8 +162,8 @@ Adaptive design that works well on all screen sizes.
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/reactultra.git
-cd reactultra
+git clone https://github.com/xGrady/ReactUltra.git
+cd ReactUltra
 
 # Install dependencies
 pnpm install
@@ -321,8 +321,8 @@ ReactUltra 遵循模块化、有组织的目录结构，专为可扩展性和可
 
 ```bash
 # 克隆仓库
-git clone https://github.com/yourusername/reactultra.git
-cd reactultra
+git clone https://github.com/xGrady/ReactUltra.git
+cd ReactUltra
 
 # 安装依赖
 pnpm install
