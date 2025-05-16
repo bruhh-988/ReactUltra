@@ -9,13 +9,12 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 export default defineConfig({
   plugins: [
     react({
-      // 开启 babel 的缓存，提高热更新速度
+      // 配置 babel 以确保正确处理 JSX
       babel: {
         babelrc: false,
         configFile: false,
-        plugins: [
-          ['@babel/plugin-transform-react-jsx', { runtime: 'automatic' }]
-        ],
+        // 使用项目中已安装的插件
+        plugins: []
       },
     }),
     tailwindcss(),
